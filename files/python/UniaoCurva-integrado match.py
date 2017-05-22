@@ -46,11 +46,15 @@ def CoAng(ax, ay, bx, by):
     b = ay - (a * ax)
     return a, b
 
-
 def YCorr(x, ax, ay, bx, by):
     a, b = CoAng(ax, ay, bx, by)
     y = a * x + b
     return y
+
+
+def slice(v1,v2):
+     v1,v2=[pair for pair in v1 if 900 <= pair[0] <= 950],[pair for pair in v2 if 900 <= pair[0] <= 950]
+     return v1,v2
 
 
 def match(v1, v2):
@@ -93,9 +97,6 @@ def match(v1, v2):
 
 
 def corte(v1, v2):
-    #TALVEZ SEJA NECESSÁRIO NÂO APAGAR
-    #if abs(v1[0][0] - v1[1][0]) > abs(v2[0][0] - v2[1][0]):
-    #    v1, v2 = v2, v1
 
     for i in range(len(v1)):
         if i == 0 and v1[0][0] == v2[0][0]:
@@ -192,13 +193,12 @@ mon = ["janeiro", "fevereiro", "marco", "abril", "maio", "junho", "julho", "agos
 
 print("""Escolha um procedimento:
 
-0 - Utilizar a data de hoje
 1 - Unir todas as curvas a partir de uma data
 2 - Informar data específica
 
 """)
 
-while menu not in ["0", "1", "2"]:
+while menu not in ["1", "2"]:
     menu = input("->")
     if menu == "0":
         if len(str(dia.day)) < 2:
@@ -219,7 +219,7 @@ while menu not in ["0", "1", "2"]:
         varre = False
         if menu == "1":
             print("Serão realizadas leituras a partir de uma data especifica.")
-            varre = True
+            varre = True #indica se foi requerida leitura de todas as pastas seguintes
         print("Informe a data desejada:")
 
         while True:
@@ -412,15 +412,7 @@ while True:
             fim.extend(resultados2[resultados2.index(i):])
             break
 
-    print(resultados1)
-    print(resultados2)
-    input("a")
-
-    resultados1, resultados2 = corte(resultados1, resultados2)
-
-    print(resultados1)
-    print(resultados2)
-    input("b")
+    resultados1, resultados2 = slice(resultados1, resultados2)
 
     fim.extend(match(resultados1, resultados2))
     fim.sort()
@@ -440,4 +432,4 @@ while True:
     file1 = None
     file2 = None
     print("Fim da leitura do arquivo ->", data, info["f1"]["hora"])
-print("Finalizado")
+
