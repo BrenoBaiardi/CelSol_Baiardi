@@ -417,9 +417,6 @@ while True:
     fim.extend(match(resultados1, resultados2))
     fim.sort()
 
-    print(fim)
-    input("c")
-
     # fim = mesclar(resultados1, resultados2)
     fim = "\n".join(str(elm) for elm in fim)  # adiciona as string separando por linha
     fim = fim.replace("[", "")
