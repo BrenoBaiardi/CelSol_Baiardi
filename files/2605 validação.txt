@@ -1,0 +1,3 @@
+critérios de validação
+valor de paridade > cr1000 pode possuir uma verificação interna
+Validação de comparação de temperatura e operações simples
