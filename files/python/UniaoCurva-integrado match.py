@@ -339,10 +339,11 @@ while True:
             resultados1 = []  # criação da lista1 somente de valores
             y = 0
             continue
-        if dados:  # Somente após o início dos dados
-            # os valores são separados em dois
+        if dados:
+            # Somente após o início dos dados
+            # os valores são separados em dois:
             # comprimento de onda
-            # espectro do respectivo comprimento
+            # intensidade da radiação do respectivo comprimento
             resultados1.append(lista1[x].split(";"))
             resultados1[y] = [float(resultados1[y][0]), float(resultados1[y][1])]
             if resultados1[y][0] > 950: break
@@ -372,7 +373,8 @@ while True:
             resultados2 = []  # criação da lista1 somente de valores
             y = 0
             continue
-        if dados:  # Somente após o início dos dados
+        if dados:
+            # Somente após o início dos dados
             # os valores são separados em dois
             # comprimento de onda
             # espectro do respectivo comprimento
@@ -421,7 +423,6 @@ while True:
     fim = "\n".join(str(elm) for elm in fim)  # adiciona as string separando por linha
     fim = fim.replace("[", "")
     fim = fim.replace("]", "")
-
 
 
     cria.write(str(fim))  # escreve
