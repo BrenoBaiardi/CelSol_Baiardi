@@ -1,7 +1,0 @@
-file = open("S1_1505.txt", mode="r")
-a=file.read()
-file.close()
-a=a.replace("\t",";")
-file = open("S1_1505.txt", mode="w")
-file.write(a)
-file.close()
